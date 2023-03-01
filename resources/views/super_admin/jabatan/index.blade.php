@@ -47,6 +47,7 @@
                                         href="{{ route('jabatans.edit', $d->id) }}">
                                         <i class="fas fa-edit">Edit</i>
                                     </a>
+                                    &nbsp;
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"

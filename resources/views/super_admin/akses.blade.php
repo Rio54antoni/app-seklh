@@ -33,6 +33,22 @@
         </div>
     </div>
 
+    <div class="card shadow mb-2">
+        <div class="card-header py-2">
+            <h6 class="m-0 font-weight-bold text-primary">Basic Data Akademik !!</h6>
+        </div>
+        <div class="card-head text-lg">
+            <div class="card shadow mb-2">
+                <a href="{{ route('kelas.index') }}" class="btn btn-success btn-rectangle text-lg">Kelas</a>
+            </div>
+        </div>
+        <div class="card-head text-lg">
+            <div class="card shadow mb-2">
+                <a href="{{ route('matapelajarans.index') }}" class="btn btn-dark btn-rectangle text-lg">Mata
+                    Pelajaran</a>
+            </div>
+        </div>
+    </div>
     <!-- Content Row -->
     <div class="row">
         @if ($message = Session::get('success'))

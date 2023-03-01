@@ -55,7 +55,7 @@ class StatusController extends Controller
     public function edit($id)
     {
 
-        $image = Profilsekolah::all();
+        $data = Status::findOrFail($id);
         return view('super_admin.status.edit', compact('data'));
     }
 

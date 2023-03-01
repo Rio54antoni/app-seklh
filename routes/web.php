@@ -11,6 +11,7 @@ use App\Http\Controllers\JeniskController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KepalasekolahController;
 use App\Http\Controllers\MatapelajaranController;
+use App\Http\Controllers\MuridController;
 use App\Http\Controllers\ProfilsekolahController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\UserController;
@@ -52,6 +53,7 @@ Route::middleware(['auth', 'super_admin:admin'])->group(function () {
         Route::resource('users', UserController::class);
         Route::resource('profilsekolahs', ProfilsekolahController::class);
         Route::resource('kepalasekolahs', KepalasekolahController::class);
+        Route::resource('murids', MuridController::class);
         Route::resource('matapelajarans', MatapelajaranController::class);
         Route::resource('kelas', KelasController::class);
         Route::resource('gurus', GuruController::class);

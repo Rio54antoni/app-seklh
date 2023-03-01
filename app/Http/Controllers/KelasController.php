@@ -13,9 +13,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-
         $data = Kelas::all();
-        return view('kelas.index', compact('data'));
+        return view('super_admin.kelas.index', compact('data'));
     }
 
     /**
@@ -24,7 +23,7 @@ class KelasController extends Controller
     public function create()
     {
 
-        return view('kelas.create');
+        return view('super_admin.kelas.create');
     }
 
     /**
@@ -48,7 +47,7 @@ class KelasController extends Controller
     {
 
         $data = Kelas::findOrFail($id);
-        return view('kelas.show', compact('data'));
+        return view('super_admin.kelas.show', compact('data'));
     }
 
     /**
@@ -58,7 +57,7 @@ class KelasController extends Controller
     {
 
         $data = Kelas::findOrFail($id);
-        return view('kelas.edit', compact('data'));
+        return view('super_admin.kelas.edit', compact('data'));
     }
 
     /**

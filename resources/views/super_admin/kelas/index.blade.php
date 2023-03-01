@@ -43,8 +43,8 @@
                             <td>{{ $d->keterangan }}</td>
                             <td class="text-center">
                                 <form action="{{ route('kelas.destroy', $d->id) }}" method="POST">
-                                    <a class="btn btn-info btn-square btn-sm" href="{{ route('kelas.show', $d->id) }}"><i
-                                            class="far fa-eye">View</i></a>
+                                    {{-- <a class="btn btn-info btn-square btn-sm" href="{{ route('kelas.show', $d->id) }}"><i
+                                            class="far fa-eye">View</i></a> --}}
                                     <a class="btn btn-warning btn-square btn-sm" href="{{ route('kelas.edit', $d->id) }}">
                                         <i class="fas fa-edit">Edit</i>
                                     </a>
@@ -60,6 +60,9 @@
                         </tr>
                     @endforeach
                 </table>
+            </div>
+            <div class="text">
+                <a href="{{ route('super_admin.akses') }}" class="btn btn-square btn-primary">Kembali</a>
             </div>
         </div>
     </div>

@@ -44,9 +44,9 @@
                             <td>{{ $d->jam }}</td>
                             <td class="text-center">
                                 <form action="{{ route('matapelajarans.destroy', $d->id) }}" method="POST">
-                                    <a class="btn btn-info btn-square btn-sm"
+                                    {{-- <a class="btn btn-info btn-square btn-sm"
                                         href="{{ route('matapelajarans.show', $d->id) }}"> <i
-                                            class="far fa-eye">View</i></a>
+                                            class="far fa-eye">View</i></a> --}}
                                     <a class="btn btn-warning btn-square btn-sm"
                                         href="{{ route('matapelajarans.edit', $d->id) }}">
                                         <i class="fas fa-edit">Edit</i>
@@ -55,12 +55,15 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                            class="fas fa-trash"></i></button>
+                                            class="fas fa-trash">Hapus</i></button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                 </table>
+            </div>
+            <div class="text">
+                <a href="{{ route('super_admin.akses') }}" class="btn btn-square btn-primary">Kembali</a>
             </div>
         </div>
     </div>

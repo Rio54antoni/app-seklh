@@ -59,13 +59,13 @@
             <i class="fas fa-fw fa-folder"></i>
             <span>Guru</span></a>
     </li>
-    {{-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link{{ request()->routeIs('murids.index') ? ' active' : '' }}"
             href="{{ route('murids.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Murid</span></a>
-    </li> --}}
-    <li
+    </li>
+    {{-- <li
         class="nav-item {{ request()->routeIs('matapelajarans.index', 'matapelajarans.create', 'matapelajarans.edit', 'matapelajarans.show') ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('matapelajarans.index') }}">
             <i class="fas fa-fw fa-folder"></i>
@@ -76,7 +76,7 @@
         <a class="nav-link" href="{{ route('kelas.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Kelas</span></a>
-    </li>
+    </li> --}}
     <hr class="sidebar-divider">
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

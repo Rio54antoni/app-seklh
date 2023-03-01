@@ -93,10 +93,15 @@ class GuruController extends Controller
             $foto->move($destinationPath, $profileimage);
             $input['foto'] = "$profileimage";
         }
-        Guru::create($input);
-
-        return redirect()->route('gurus.index')
-            ->with('success', 'Data Guru Di Tambahkan ');
+        try {
+            Guru::create($input);
+            return redirect()->route('users.index')
+                ->with('success', 'Data Berhasil Di Tambahkan');
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withErrors(['message' => 'Gagal menyimpan data. Silahkan coba lagi.'])
+                ->withInput();
+        }
     }
 
     /**
@@ -106,7 +111,6 @@ class GuruController extends Controller
     {
 
         $data = Guru::findOrFail($id);
-        //
         return view('guru.show', compact('data'));
     }
 

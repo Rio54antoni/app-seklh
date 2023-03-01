@@ -39,12 +39,12 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>NIP</th>
-                        <th>Agama</th>
+                        {{-- <th>Agama</th> --}}
                         <th>Jabatan</th>
                         {{-- <th>Jenis Kelamin</th> --}}
-                        <th>Email</th>
+                        {{-- <th>Email</th> --}}
                         {{-- <th>Alamat</th> --}}
-                        <th>No.Tlp</th>
+                        {{-- <th>No.Tlp</th> --}}
                         <th>Kelas</th>
                         <th>Mata Pelajaran</th>
                         {{-- <th>Tanggal Masuk</th> --}}
@@ -60,12 +60,12 @@
                             <td>{{ $i++ }}</td>
                             <td>{{ $d->nama }}</td>
                             <td>{{ $d->nip }}</td>
-                            <td>{{ $d->agama->nama }}</td>
+                            {{-- <td>{{ $d->agama->nama }}</td> --}}
                             <td>{{ $d->jabatan->nama }}</td>
                             {{-- <td>{{ $d->jeniskelamin->nama }}</td> --}}
-                            <td>{{ $d->email }}</td>
+                            {{-- <td>{{ $d->email }}</td> --}}
                             {{-- <td>{{ $d->alamat }}</td> --}}
-                            <td>{{ $d->notelepon }}</td>
+                            {{-- <td>{{ $d->notelepon }}</td> --}}
                             <td>{{ $d->kelas->namakelas }}</td>
                             <td>{{ $d->matapelajaran->namapelajaran }}</td>
                             {{-- <td>{{ \Carbon\Carbon::parse($d->tgl_masuk)->isoFormat('dddd, DD MMMM YYYY') }}</td> --}}

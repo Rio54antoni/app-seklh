@@ -16,7 +16,7 @@ class MatapelajaranController extends Controller
     {
 
         $data = Matapelajaran::all();
-        return view('mata_pelajaran.index', compact('data'));
+        return view('super_admin.mata_pelajaran.index', compact('data'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MatapelajaranController extends Controller
     public function create()
     {
 
-        return view('mata_pelajaran.create');
+        return view('super_admin.mata_pelajaran.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class MatapelajaranController extends Controller
     {
 
         $data = Matapelajaran::findOrFail($id);
-        return view('mata_pelajaran.show', compact('data'));
+        return view('super_admin.mata_pelajaran.show', compact('data'));
     }
 
     /**
@@ -59,7 +59,7 @@ class MatapelajaranController extends Controller
     {
 
         $data = Matapelajaran::findOrFail($id);
-        return view('mata_pelajaran.edit', compact('data'));
+        return view('super_admin.mata_pelajaran.edit', compact('data'));
     }
 
     /**
