@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profilsekolah;
 use App\Models\Status;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,8 +15,8 @@ class UserController extends Controller
     public function index()
     {
 
-        $data = Status::all();
-        return view('super_admin.status.index', compact('data'));
+        $data = User::all();
+        return view('super_admin.user.index', compact('data'));
     }
 
     /**
@@ -24,8 +25,8 @@ class UserController extends Controller
     public function create()
     {
 
-        $data = Status::all();
-        return view('super_admin.status.create', compact('data'));
+        $data = User::all();
+        return view('super_admin.user.create', compact('data'));
     }
 
     /**
@@ -35,10 +36,12 @@ class UserController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'keterangan' => 'required'
+            'email' => 'required',
+            'level' => 'required',
+            'password' => 'required'
         ]);
-        Status::create($request->all());
-        return redirect()->route('statuses.index')
+        User::create($request->all());
+        return redirect()->route('user.index')
             ->with('success', 'Data Berhasil Di Tambahkan');
     }
 
@@ -55,9 +58,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
-        $image = Profilsekolah::all();
-        return view('super_admin.status.edit', compact('data'));
+        $data = User::findOrFail($id);
+        return view('super_admin.user.edit', compact('data'));
     }
 
     /**
@@ -67,13 +69,15 @@ class UserController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'keterangan' => 'required'
+            'email' => 'required',
+            'level' => 'required',
+            'password' => 'required'
         ]);
         $data = Status::findOrFail($id);
         $data->nama = $request->nama;
         $data->keterangan = $request->keterangan;
         $data->update();
-        return redirect()->route('statuses.index')
+        return redirect()->route('users.update')
             ->with('success', 'Data Berhasil Di Perbaharui');
     }
 
@@ -84,7 +88,7 @@ class UserController extends Controller
     {
         $data = Status::findOrFail($id);
         $data->delete();
-        return redirect()->route('statuses.index')
+        return redirect()->route('users.index')
             ->with('success', 'Data Terhapus');
     }
 }

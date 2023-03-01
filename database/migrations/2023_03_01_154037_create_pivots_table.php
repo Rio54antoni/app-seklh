@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_managers', function (Blueprint $table) {
+        Schema::create('pivots', function (Blueprint $table) {
             $table->id();
+            $table->string('id_guru');
+            $table->string('id_mp');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_managers');
+        Schema::dropIfExists('pivots');
     }
 };

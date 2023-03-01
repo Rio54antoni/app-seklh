@@ -18,7 +18,7 @@ class ProfilSekolahSeeder extends Seeder
             'alamat' => 'Jl.Pariaman menuju Bandara',
             'email' => 'smpn3@gmail.com',
             'notelepon' => '08567890123',
-            'nss' => '1111111',
+            'nss' => '28175643',
             'akreditasi' => 'A',
             'foto' => 'sma2.jpg',
         ]);

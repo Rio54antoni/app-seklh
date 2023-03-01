@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('alamat');
             $table->string('notelepon');
-            $table->date('tgl_masuk');
+            $table->date('tgl_masuk')->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();
         });

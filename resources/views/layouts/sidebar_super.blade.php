@@ -34,8 +34,9 @@
             <i class="fas fa-fw fa-cog"></i>
             <span>Menagement APP</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="">
+    <li
+        class="nav-item {{ request()->routeIs('users.index', 'users.create', 'users.edit', 'users.show') ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fas fa-fw fa-cog"></i>
             <span>User Menagement</span></a>
     </li>

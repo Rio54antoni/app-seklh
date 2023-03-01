@@ -13,6 +13,7 @@ use App\Http\Controllers\KepalasekolahController;
 use App\Http\Controllers\MatapelajaranController;
 use App\Http\Controllers\ProfilsekolahController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserManagerController;
 use App\Models\Guru;
 use App\Models\Kelas;
@@ -46,11 +47,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout.index');
 //route dari superadmin
 Route::middleware(['auth', 'super_admin:admin'])->group(function () {
     Route::group(['prefix' => 'super-admin'], function () {
-        Route::resource('users', Adm_superadminController::class);
         Route::get('/dashboard', [Adm_superadminController::class, 'index'])->name('super_admin.index');
         Route::get('/akses', [Adm_superadminController::class, 'akses'])->name('super_admin.akses');
+        Route::resource('users', UserController::class);
         Route::resource('profilsekolahs', ProfilsekolahController::class);
-        Route::resource('usermanagers', UserManagerController::class);
         Route::resource('kepalasekolahs', KepalasekolahController::class);
         Route::resource('matapelajarans', MatapelajaranController::class);
         Route::resource('kelas', KelasController::class);
