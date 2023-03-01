@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('id_kelas');
             $table->string('id_guru');
-            $table->year('tahun_ajaran');
+            $table->string('tahun_ajaran');
             $table->timestamps();
         });
     }

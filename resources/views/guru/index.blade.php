@@ -74,16 +74,15 @@
                             <td class="text-center">
                                 <form action="{{ route('gurus.destroy', $d->id) }}" method="POST">
                                     <a href="{{ route('gurus.show', $d->id) }}" class="btn btn-info btn-square btn-sm">
-                                        <i class="far fa-eye">View</i>
-                                        <a href="{{ route('gurus.edit', $d->id) }}"
-                                            class="btn btn-warning btn-square btn-sm">
-                                            <i class="fas fa-edit">Edit</i>
-                                        </a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                class="fas fa-trash">Hapus</i></button>
+                                        <i class="far fa-eye">View</i> </a>
+                                    <a href="{{ route('gurus.edit', $d->id) }}" class="btn btn-warning btn-square btn-sm">
+                                        <i class="fas fa-edit">Edit</i>
+                                    </a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
+                                            class="fas fa-trash">Hapus</i></button>
                                 </form>
                             </td>
                         </tr>

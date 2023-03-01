@@ -27,8 +27,8 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Level</th>
+                        <th>foto</th>
                         <th class="text-center">Action</th>
                     </tr>
                     @php
@@ -37,12 +37,14 @@
                     @foreach ($data as $d)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $d->name }}</td>
+                            <td>{{ $d->nama }}</td>
                             <td>{{ $d->email }}</td>
-                            <td>{{ $d->password }}</td>
                             <td>{{ $d->level }}</td>
+                            <td><img src="/image/{{ $d->foto }}" width="75px" height="75px"></td>
                             <td class="text-center">
                                 <form action="{{ route('users.destroy', $d->id) }}" method="POST">
+                                    <a href="{{ route('users.show', $d->id) }}" class="btn btn-info btn-square btn-sm">
+                                        <i class="far fa-eye">View</i> </a>
                                     <a class="btn btn-warning btn-square btn-sm" href="{{ route('users.edit', $d->id) }}">
                                         <i class="fas fa-edit">Edit</i>
                                     </a>
@@ -50,7 +52,7 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                            class="fas fa-trash"></i></button>
+                                            class="fas fa-trash">Hapus</i></button>
                                 </form>
                             </td>
                         </tr>

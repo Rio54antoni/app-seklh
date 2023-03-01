@@ -123,8 +123,13 @@
                             </div>
                             Upload Foto
                             <div class="form">
-                                <input name="foto" type="file"
-                                    class=" @error('foto') is-invalid @enderror"title="Pilih File Foto">
+                                <input name="foto" type="file" class=" @error('foto') is-invalid @enderror"
+                                    title="Pilih File Foto">
+                                @error('foto')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <hr>
                             <button type="submit" class="btn btn-facebook ">
