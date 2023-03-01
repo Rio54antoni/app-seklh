@@ -25,7 +25,7 @@ class GuruController extends Controller
         $keyword = $request->input('keyword');
         $data = Guru::where('nama', 'LIKE', "%$keyword%")
             ->orWhere('nip', 'LIKE', "%$keyword%")
-            ->paginate(2);
+            ->paginate(5);
         // di bawah ini codingan lama
         // $data = Guru::with(
         //     'agama',
@@ -95,7 +95,7 @@ class GuruController extends Controller
         }
         try {
             Guru::create($input);
-            return redirect()->route('users.index')
+            return redirect()->route('gurus.index')
                 ->with('success', 'Data Berhasil Di Tambahkan');
         } catch (\Exception $e) {
             return redirect()->back()

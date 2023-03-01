@@ -68,10 +68,10 @@ Route::middleware(['auth', 'super_admin:admin'])->group(function () {
 Route::middleware(['auth', 'admin:admin'])->group(function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/dashboard', [Adm_adminController::class, 'index'])->name('admin.index');
-        Route::get('/kepalasekolah', [KepalasekolahController::class, 'index'])->name('kepalasekolah.index');
-        Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');
-        Route::get('/matapelajaran', [MatapelajaranController::class, 'index'])->name('matapelajaran.index');
-        Route::get('/kelas', [KelasController::class, 'index'])->name('kela.index');
+        // Route::get('/kepalasekolah', [KepalasekolahController::class, 'index'])->name('kepalasekolah.index');
+        // Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');
+        // Route::get('/matapelajaran', [MatapelajaranController::class, 'index'])->name('matapelajaran.index');
+        // Route::get('/kelas', [KelasController::class, 'index'])->name('kela.index');
     });
 });
 

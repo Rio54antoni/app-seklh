@@ -6,6 +6,7 @@ use App\Models\Profilsekolah;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -127,19 +128,21 @@ class UserController extends Controller
         ], [
             'nama.required' => 'Nama user tidak boleh kosong',
             'email.required' => 'Email tidak boleh kosong',
-            'role.required' => 'Pilih salah satu role akun',
-            'foto.required' => 'Format file tidak didukung',
+            'level.required' => 'Pilih salah satu level akun',
+            'foto.required' => 'Format file tidak didukung'
         ]);
         $user = User::findOrFail($id);
-        $user->nama = $request->nama;
-        $user->email = $request->email;
-        $user->level = $request->level;
         if ($foto = $request->file('foto')) {
             $destinationPath = 'image/';
             $profileimage = date('YmdHis') . '.' . $foto->getClientOriginalExtension();
             $foto->move($destinationPath, $profileimage);
-            $input['foto'] = "$profileimage";
+            $user['foto'] = "$profileimage";
         }
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $user->level = $request->level;
+        if ($request->password)
+            $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->route('users.index')
             ->with('success', 'Data Berhasil Di Perbaharui');

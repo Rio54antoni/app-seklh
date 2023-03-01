@@ -10,9 +10,13 @@ class MuridController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $keyword = $request->input('keyword');
+        $data = Murid::where('nama', 'LIKE', "%$keyword%")
+            ->orWhere('nis', 'LIKE', "%$keyword%")
+            ->paginate(5);
+        return view('murid.index', compact('data'));
     }
 
     /**

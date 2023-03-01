@@ -37,16 +37,16 @@
                                 <form class="user" action="{{ route('proseslogin.index') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control form-control-user"
+                                        <input type="email" name="email" class="form-control form-control"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
                                             placeholder="Enter Email Address...">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control form-control-user"
+                                        <input type="password" name="password" class="form-control form-control"
                                             id="exampleInputPassword" placeholder="Password">
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    <button type="submit" class="btn btn-primary btn btn-block">
                                         Login
                                     </button>
                                 </form>

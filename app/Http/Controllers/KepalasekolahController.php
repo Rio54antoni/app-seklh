@@ -24,8 +24,6 @@ class KepalasekolahController extends Controller
      */
     public function create()
     {
-        $image = Profilsekolah::all();
-        $logo = $image->first();
         return view('kepala_sekolah.create');
     }
 
@@ -64,7 +62,7 @@ class KepalasekolahController extends Controller
     {
 
         $data = Kepalasekolah::findOrFail($id);
-        return view('kepala_sekolah.show');
+        return view('kepala_sekolah.show', compact('data'));
     }
 
     /**
@@ -74,7 +72,7 @@ class KepalasekolahController extends Controller
     {
 
         $data = Kepalasekolah::findOrFail($id);
-        return view('kepala_sekolah.edit');
+        return view('kepala_sekolah.edit', compact('data'));
     }
 
     /**

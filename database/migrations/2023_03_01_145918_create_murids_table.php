@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nis')->unique();
+            $table->string('id_agama');
             $table->string('id_jk');
             $table->date('tgl_lahir')->nullable();
             $table->string('tempat_lahir');
@@ -22,6 +23,8 @@ return new class extends Migration
             $table->string('nohp')->nullable();
             $table->string('nama_ayah');
             $table->string('nama_ibu');
+            $table->date('tgl_masuk')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

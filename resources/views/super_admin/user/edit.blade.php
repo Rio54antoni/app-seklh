@@ -43,8 +43,9 @@
                             <div class=" row col">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="kelas">Leve User</label>
-                                        <select name="level" class="form-control  @error('level') is-invalid @enderror">
+                                        <label for="level">Level User</label>
+                                        <select id="level" name="level"
+                                            class="form-control @error('level') is-invalid @enderror">
                                             <option value="">Pilih Level Pengguna</option>
                                             @foreach ($level as $item)
                                                 <option value="{{ $item['nama'] }}"
@@ -54,17 +55,17 @@
                                             @endforeach
                                         </select>
                                         @error('level')
-                                            <span class="invalid-feedback" level="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="nama">Upload Foto</label>
+                                    <label for="foto">Ganti Foto</label>
                                     <br>
-                                    <input type="file" name="foto"
-                                        class="form {{ $errors->has('foto') ? ' text-red' : '' }}">
+                                    <input type="file" name="foto" class="form @error('foto') is-invalid @enderror"
+                                        {{ old('foto', $data->foto) }}>
                                     @error('foto')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -76,7 +77,7 @@
                             <div class="row col">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="nama">Password</label>
+                                        <label for="password">Password</label>
                                         <input type="password" name="password"
                                             value="{{ old('password'), $data->password }}"
                                             class="form-control  @error('password') is-invalid @enderror"
@@ -90,7 +91,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="nama">Ketik Ulang Password</label>
+                                        <label for="password_confirmation">Ketik Ulang Password</label>
                                         <input type="password" name="password_confirmation"
                                             class="form-control {{ $errors->has('password') ? ' text-red' : '' }}"
                                             placeholder="Masukan Ulang Password">
