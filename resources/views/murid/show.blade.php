@@ -1,6 +1,6 @@
 @extends('master.layouts')
-@section('title', 'Lihat Data Guru')
-@section('link', 'Guru/Lihat')
+@section('title', 'Lihat Data Murid')
+@section('link', 'Murid/Lihat')
 @section('content')
     <!-- Page Heading -->
     <div class="card shadow mb-4">
@@ -15,36 +15,47 @@
                             <div class="col-md-6">
                                 <p>Nama : <strong>{{ $data->nama }}</strong></p>
                             </div>
-                            <div class="col-md-6 text-right">
+                            <div class="col-md-6">
                                 <p>Terdaftar :
                                     {{ \Carbon\Carbon::parse($data->tgl_masuk)->isoFormat('dddd, DD MMMM YYYY') }}</p>
-                                <em>Status :</em> {{ $data->status->nama }}
                             </div>
                         </div>
-                        <hr>
-                        <p>Agama : {{ $data->agama->nama }}</p>
-                        <hr>
-                        <p>Jabatan : {{ $data->jabatan->nama }}</p>
                         <hr>
                         <div class="row">
                             <div class="col-md-6">
-                                <p>Email : {{ $data->email }}</p>
+                                <p>Agama : {{ $data->agama->nama }}</p>
                             </div>
-                            <div class="col-md-4 text-center">
-                                <p>No.tlp/WA : {{ $data->notelepon }}</p>
+                            <div class="col-md-4">
+                                <p>Umur : {{ $umur }} tahun</p>
                             </div>
                         </div>
                         <hr>
-                        <p>Alamat : {{ $data->alamat }}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Tempat Tanggal Lahir : </p>
+                                <p>
+                                    {{ $data->tempat_lahir }},
+                                    {{ \Carbon\Carbon::parse($data->tgl_lahir)->isoFormat('DD MMMM YYYY') }}
+                                </p>
+                            </div>
+                            <div class="col-md-4 ">
+                                <p>Alamat : {{ $data->alamat }}</p>
+                            </div>
+                        </div>
                         <hr>
                         <p>Jenis Kelamin : {{ $data->jeniskelamin->nama }}</p>
                         <hr>
+                        Orang Tua
+                        <div class="col">
+                            <p>No.tlp/WA : {{ $data->nohp }}</p>
+                        </div>
                         <div class="row">
+
                             <div class="col-md-6">
-                                <p>Mata Pelajaran : {{ $data->matapelajaran->namapelajaran }} </p>
+                                <p>Ayah : {{ $data->nama_ayah }} </p>
                             </div>
-                            <div class="col-md-4">
-                                <p>Kelas Di ajar : {{ $data->kelas->namakelas }}</p>
+                            <div class="col-md-6">
+                                <p>Ibu : {{ $data->nama_ibu }}</p>
                             </div>
                         </div>
                     </div>
@@ -52,12 +63,12 @@
                         <div class="text-center">
                             <p>- Foto -</p>
                             <img src="/image/{{ $data->foto }}" width="250px" height="250px">
-                            <p> NIP : {{ $data->nip }}</p>
+                            <p> NIS : {{ $data->nis }}</p>
                         </div>
                     </div>
                 </div>
                 <hr>
-                <a href="{{ route('gurus.index') }}"
+                <a href="{{ route('murids.index') }}"
                     class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Kembali</a>
             </div>
         </div>

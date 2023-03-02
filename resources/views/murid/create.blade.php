@@ -1,8 +1,13 @@
 @extends('master.layouts')
-@section('title', 'Tambah Data Guru')
-@section('link', 'Guru/Tambah')
+@section('title', 'Tambah Data Murid')
+@section('link', 'Murid/Tambah')
 @section('content')
     <!-- Page Heading -->
+    @if ($message = Session::get('error'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ $message }} <strong>!!!</strong>
+        </div>
+    @endif
     <div class="card o-hidden border-0 shadow-lg">
         <div class="card-body p-2">
             <!-- Nested Row within Card Body -->
@@ -12,7 +17,8 @@
                         <div class="text-center">
                             <h4 class="text-gray-900 mb-2 m-0 font-weight-bold">Tambah Data</h4>
                         </div>
-                        <form class="user" action="{{ route('gurus.store') }}" method="POST" enctype="multipart/form-data">
+                        <form class="user" action="{{ route('murids.store') }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="row col">
                                 <div class="col">
@@ -32,7 +38,7 @@
                                     <div class="form-group">
                                         Agama
                                         <select name="id_agama"
-                                            class="form-control form-control @error('id_agama') is-invalid @enderror">
+                                            class="form-control  @error('id_agama') is-invalid @enderror">
                                             <option value="">-Pilih-</option>
                                             @foreach ($agama as $ag)
                                                 <option value="{{ $ag->id }}"
@@ -54,11 +60,11 @@
                             <div class="row col">
                                 <div class="col">
                                     <div class="form-group">
-                                        NIP
-                                        <input name="nip" type="number" value="{{ old('nip') }}"
-                                            class="form-control form-control @error('nip') is-invalid @enderror"
-                                            id="exampleInputEmail" placeholder="Masukan NIP">
-                                        @error('nip')
+                                        NIS
+                                        <input name="nis" type="number" value="{{ old('nis') }}"
+                                            class="form-control @error('nis') is-invalid @enderror" id="exampleInputEmail"
+                                            placeholder="Masukan NIS">
+                                        @error('nis')
                                             <div class="alert alert-danger mt-2">
                                                 {{ $message }}
                                             </div>
@@ -67,34 +73,29 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        Jabatan
-                                        <select name="id_jabatan"
-                                            class="form-control form-control @error('id_jabatan') is-invalid @enderror">
-                                            <option value="">-Pilih-</option>
-                                            @foreach ($jabatan as $jabat)
-                                                <option value="{{ $jabat->id }}"
-                                                    {{ old('id_jabatan') == $jabat->id ? 'selected' : null }}>
-                                                    {{ $jabat->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        @error('id_jabatan')
+                                        Tanggal Masuk
+                                        <input name="tgl_masuk" type="date" value="{{ old('tgl_masuk') }}"
+                                            class="form-control @error('tgl_masuk') is-invalid @enderror">
+                                        @error('tgl_masuk')
                                             <div class="alert alert-danger mt-2">
                                                 {{ $message }}
                                             </div>
                                         @enderror
+
                                     </div>
+
                                 </div>
                             </div>
+                            <hr>
                             <div class="row col">
                                 <div class="row col-6">
                                     <div class="col">
                                         <div class="form-group">
-                                            No Telepon / WA
-                                            <input name="notelepon" type="number" value="{{ old('notelepon') }}"
-                                                class="form-control form-control @error('notelepon') is-invalid @enderror"
-                                                id="exampleInputEmail" placeholder="Contoh : 081265473896">
-                                            @error('notelepon')
+                                            No Telepon / WA Orang Tua
+                                            <input name="nohp" type="number" value="{{ old('nohp') }}"
+                                                class="form-control form-control @error('nohp') is-invalid @enderror"
+                                                placeholder="Contoh : 081265473896">
+                                            @error('nohp')
                                                 <div class="alert alert-danger mt-2">
                                                     {{ $message }}
                                                 </div>
@@ -106,7 +107,7 @@
                                             <div class="form-group">
                                                 Jenis Kelamin
                                                 <select name="id_jk"
-                                                    class="form-control form-control @error('id_jk') is-invalid @enderror">
+                                                    class="form-control  @error('id_jk') is-invalid @enderror">
                                                     <option value="">-Pilih-</option>
                                                     @foreach ($jk as $jenis)
                                                         <option value="{{ $jenis->id }}"
@@ -127,32 +128,23 @@
                                 <div class="row col">
                                     <div class="col">
                                         <div class="form-group">
-                                            Status
-                                            <select name="id_status"
-                                                class="form-control form-control @error('id_status') is-invalid @enderror">
-                                                <option value="">-Pilih-</option>
-                                                @foreach ($status as $stat)
-                                                    <option value="{{ $stat->id }}"
-                                                        {{ old('id_status') == $stat->id ? 'selected' : null }}>
-                                                        {{ $stat->nama }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            @error('id_status')
+                                            Tempat Lahir
+                                            <input name="tempat_lahir" type="text" value="{{ old('tempat_lahir') }}"
+                                                class="form-control  @error('tempat_lahir') is-invalid @enderror"
+                                                id="exampleInputEmail" placeholder="Masukan Tempat lahir">
+                                            @error('tempat_lahir')
                                                 <div class="alert alert-danger mt-2">
                                                     {{ $message }}
                                                 </div>
                                             @enderror
-
                                         </div>
-
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            Tanggal Daftar
-                                            <input name="tgl_masuk" type="date" value="{{ old('tgl_masuk') }}"
-                                                class="form-control @error('tgl_masuk') is-invalid @enderror">
-                                            @error('tgl_masuk')
+                                            Tanggal Lahir
+                                            <input name="tgl_lahir" type="date" value="{{ old('tgl_lahir') }}"
+                                                class="form-control @error('tgl_lahir') is-invalid @enderror">
+                                            @error('tgl_lahir')
                                                 <div class="alert alert-danger mt-2">
                                                     {{ $message }}
                                                 </div>
@@ -166,11 +158,11 @@
                             <div class="row col">
                                 <div class="col">
                                     <div class="form-group">
-                                        Email
-                                        <input name="email" type="email" value="{{ old('email') }}"
-                                            class="form-control form-control @error('email') is-invalid @enderror"
-                                            id="exampleInputEmail" placeholder="Masukan email">
-                                        @error('email')
+                                        Nama Ayah
+                                        <input name="nama_ayah" type="text" value="{{ old('nama_ayah') }}"
+                                            class="form-control @error('nama_ayah') is-invalid @enderror"
+                                            placeholder="Masukan Nama ayah">
+                                        @error('nama_ayah')
                                             <div class="alert alert-danger mt-2">
                                                 {{ $message }}
                                             </div>
@@ -179,32 +171,24 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        Mata Pelajaran
-                                        <select name="id_mp"
-                                            class="form-control form-control @error('id_mp') is-invalid @enderror">
-                                            <option value="">-Pilih-</option>
-                                            @foreach ($mp as $matapelajaran)
-                                                <option value="{{ $matapelajaran->id }}"
-                                                    {{ old('id_mp') == $matapelajaran->id ? 'selected' : null }}>
-                                                    {{ $matapelajaran->namapelajaran }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('id_mp')
+                                        Nama Ibu
+                                        <input name="nama_ibu" type="text" value="{{ old('nama_ibu') }}"
+                                            class="form-control @error('nama_ibu') is-invalid @enderror"
+                                            placeholder="Masukan Nama ibu">
+                                        @error('nama_ibu')
                                             <div class="alert alert-danger mt-2">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="row col">
+                            <div class="row col ">
                                 <div class="col">
-                                    <div class="form-group">
+                                    <div class="form-group text-left">
                                         Alamat
-                                        <textarea name="alamat" type="text" class="form-control form-control @error('alamat') is-invalid @enderror"
-                                            placeholder="Masukan alamat">{{ old('alamat') }}
-                                                </textarea>
+                                        <textarea name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror"
+                                            placeholder="Masukan alamat">{{ old('alamat') }}</textarea>
                                         @error('alamat')
                                             <div class="alert alert-danger mt-2">
                                                 {{ $message }}
@@ -213,27 +197,6 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group">
-                                        Kelas
-                                        <select name="id_kelas"
-                                            class="form-control form-control @error('id_kelas') is-invalid @enderror">
-                                            <option value="">-Pilih-</option>
-                                            @foreach ($kelas as $k)
-                                                <option value="{{ $k->id }}"
-                                                    {{ old('id_kelas') == $k->id ? 'selected' : null }}>
-                                                    {{ $k->namakelas }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        @error('id_kelas')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-
-                                    </div>
-
-
                                 </div>
                             </div>
                             Upload Foto
@@ -250,7 +213,7 @@
                             <button type="submit" class="btn btn-facebook ">
                                 Simpan
                             </button>
-                            <a href="{{ route('gurus.index') }}" class="btn btn-google ">
+                            <a href="{{ route('murids.index') }}" class="btn btn-google ">
                                 Kembali
                             </a>
                         </form>

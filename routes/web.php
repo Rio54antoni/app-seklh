@@ -46,7 +46,7 @@ Route::post('/proseslogin', [AuthController::class, 'proses_login'])->name('pros
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout.index');
 
 //route dari superadmin
-Route::middleware(['auth', 'super_admin:admin'])->group(function () {
+Route::middleware(['auth', 'super_admin'])->group(function () {
     Route::group(['prefix' => 'super-admin'], function () {
         Route::get('/dashboard', [Adm_superadminController::class, 'index'])->name('super_admin.index');
         Route::get('/akses', [Adm_superadminController::class, 'akses'])->name('super_admin.akses');
@@ -65,13 +65,20 @@ Route::middleware(['auth', 'super_admin:admin'])->group(function () {
 });
 
 //route dari admin
-Route::middleware(['auth', 'admin:admin'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/dashboard', [Adm_adminController::class, 'index'])->name('admin.index');
-        // Route::get('/kepalasekolah', [KepalasekolahController::class, 'index'])->name('kepalasekolah.index');
-        // Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');
-        // Route::get('/matapelajaran', [MatapelajaranController::class, 'index'])->name('matapelajaran.index');
-        // Route::get('/kelas', [KelasController::class, 'index'])->name('kela.index');
+
+        Route::resource('gurus', GuruController::class);
+        Route::resource('kepalasekolahs', KepalasekolahController::class);
+        Route::resource('murids', MuridController::class);
+        Route::resource('matapelajarans', MatapelajaranController::class);
+        Route::resource('kelas', KelasController::class);
+        Route::resource('gurus', GuruController::class);
+        Route::resource('agamas', AgamaController::class);
+        Route::resource('statuses', StatusController::class);
+        Route::resource('jabatans', JabatanController::class);
+        Route::resource('jenisks', JeniskController::class);
     });
 });
 

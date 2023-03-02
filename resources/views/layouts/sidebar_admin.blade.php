@@ -28,12 +28,12 @@
     <!-- Heading -->
 
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('kepalasekolah.index') }}">
+        <a class="nav-link" href="{{ route('kepalasekolahs.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Kepala Sekolah</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('guru.index') }}">
+        <a class="nav-link" href="{{ route('gurus.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Guru</span></a>
     </li>
@@ -43,12 +43,12 @@
             <span>Murid</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('matapelajaran.index') }}">
+        <a class="nav-link" href="{{ route('matapelajarans.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Mata Pelajaran</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('kela.index') }}">
+        <a class="nav-link" href="{{ route('kelas.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Kelas</span></a>
     </li>
