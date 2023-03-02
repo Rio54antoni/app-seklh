@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Super_admin;
 
 use App\Models\Agama;
 use App\Models\Guru;
@@ -55,7 +55,7 @@ class GuruController extends Controller
         $status = Status::all();
         $kelas = Kelas::all();
         $mp = Matapelajaran::all();
-        return view('guru.create', compact(
+        return view('super_admin.guru.create', compact(
             'agama',
             'jabatan',
             'jk',

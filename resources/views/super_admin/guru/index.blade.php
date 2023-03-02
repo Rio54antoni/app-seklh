@@ -1,11 +1,9 @@
 @extends('master.layouts')
-@section('title', 'User Manangement')
-@section('link', 'User Management')
+@section('title', 'Pegawai')
+@section('link', 'Pegawai')
 @section('content')
     <!-- Page Heading -->
-
     <!-- Content Row -->
-
     <!-- Content Row -->
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,11 +15,12 @@
         <div class="card-header py-3">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="m-0 font-weight-bold text-primary">User Management</h4>
+                    <h4 class="m-0 font-weight-bold text-primary">Pegawai </h4>
                 </div>
                 <div class=" col-md-6 text-right">
                     <a href="{{ route('gurus.create') }}" class="btn btn-square btn-success btn-sm"><i
                             class="fas fa-plus"></i></a>
+
                 </div>
             </div>
         </div>

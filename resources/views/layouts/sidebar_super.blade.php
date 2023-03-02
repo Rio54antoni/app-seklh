@@ -57,7 +57,7 @@
         class="nav-item {{ request()->routeIs('gurus.index', 'gurus.create', 'gurus.edit', 'gurus.show') ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('gurus.index') }}">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Guru</span></a>
+            <span>Pegawai</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link{{ request()->routeIs('murids.index') ? ' active' : '' }}"

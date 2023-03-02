@@ -28,22 +28,22 @@
     <!-- Heading -->
 
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('kepalasekolahs.index') }}">
+        <a class="nav-link" href="{{ route('admin.kepalasekolah.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Kepala Sekolah</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('gurus.index') }}">
+        <a class="nav-link" href="{{ route('admin.guru.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Guru</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('admin.murid.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Murid</span></a>
     </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('matapelajarans.index') }}">
+    {{-- <li class="nav-item active">
+        <a class="nav-link" href="{{ route('admin.matapelajaran.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Mata Pelajaran</span></a>
     </li>
@@ -51,8 +51,7 @@
         <a class="nav-link" href="{{ route('kelas.index') }}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Kelas</span></a>
-    </li>
-
+    </li> --}}
     <hr class="sidebar-divider">
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
